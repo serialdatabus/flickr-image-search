@@ -1,4 +1,10 @@
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  within,
+} from "@testing-library/react";
 import App from "./components/App";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
@@ -113,17 +119,16 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("Latest photos at the beginning", async () => {
 
+test("Latest photos at the beginning", async () => {
   render(<App />);
   await waitFor(() => {
     expect(screen.getAllByText(/tags/i)[0]).toBeInTheDocument();
   });
-  
 });
 
-test("show no results message", async () => {
 
+test("show no results message", async () => {
   server.use(
     rest.get("https://api.flickr.com/services/rest/", (req, res, ctx) => {
       return res(
@@ -140,13 +145,23 @@ test("show no results message", async () => {
   await waitFor(() => {
     expect(screen.getByText("There is no results")).toBeInTheDocument();
   });
-
 });
 
-test("Change search type", async () => {
 
+test("Change search type", async () => {
   render(<App />);
   fireEvent.click(screen.getByAltText("Search by text"));
   expect(screen.getByAltText("Search by tag")).toBeInTheDocument();
+});
 
+
+test("Change safe search settings", async () => {
+  render(<App />);
+  const btnSafeSearchSettings = screen.getByTestId("btn-safe-search-settings");
+  fireEvent.click(btnSafeSearchSettings);
+  const safeSearchSettings = screen.getByTestId("safe-search-settings");
+  const btnSafe = within(safeSearchSettings).getByText(/disabled/i);
+  expect(safeSearchSettings).toHaveClass("show");
+  fireEvent.click(btnSafe);
+  expect(safeSearchSettings).not.toHaveClass("show");
 });

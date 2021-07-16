@@ -80,6 +80,7 @@ function App() {
     <div className="App">
       <div
         id="safe-search-settings"
+        data-testid="safe-search-settings"
         className={showSafeSearchSettings ? "show" : ""}
         onClick={(e) => setShowSafeSearchSettings(false)}
       >
@@ -98,6 +99,7 @@ function App() {
         <div className="safe-search-container">
           <span>Safe search setting:</span>
           <button
+          data-testid="btn-safe-search-settings"
             onClick={() => setShowSafeSearchSettings(true)}
             className={safeSearchClasses[safeSearch]}
           >
