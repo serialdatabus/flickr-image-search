@@ -126,7 +126,7 @@ function App() {
 
       {isLoading && !error && <img alt="" className="loading" src={loading} />}
       {error && !isLoading && <h3 className="error-message">There was an error</h3>}
-      {photos.length == 0 && !isLoading && <h3 className="no-result">There is no results</h3>}
+      {photos.length === 0 && !isLoading && <h3 className="no-result">There is no results</h3>}
     </div>
   );
 }

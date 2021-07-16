@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import LazyImage from "./LazyImage";
-var _ = require("lodash");
 const PhotoItem = (props, ref) => {
   const { url_m, title, description, tags, id, owner, ownername } =
     props.photodata;
