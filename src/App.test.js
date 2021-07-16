@@ -113,21 +113,17 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/restricted/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
 test("Latest photos at the beginning", async () => {
-  render(<App />);
 
+  render(<App />);
   await waitFor(() => {
     expect(screen.getAllByText(/tags/i)[0]).toBeInTheDocument();
   });
+  
 });
 
 test("show no results message", async () => {
+
   server.use(
     rest.get("https://api.flickr.com/services/rest/", (req, res, ctx) => {
       return res(
@@ -144,4 +140,13 @@ test("show no results message", async () => {
   await waitFor(() => {
     expect(screen.getByText("There is no results")).toBeInTheDocument();
   });
+
+});
+
+test("Change search type", async () => {
+
+  render(<App />);
+  fireEvent.click(screen.getByAltText("Search by text"));
+  expect(screen.getByAltText("Search by tag")).toBeInTheDocument();
+
 });

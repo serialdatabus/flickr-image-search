@@ -117,7 +117,7 @@ function App() {
 
           {searchType === "text" && (
             <img
-              alt="Search by tag"
+              alt="Search by text"
               className="btn-search-type"
               onClick={() => setSearchType("tags")}
               src={textIcon}
@@ -125,7 +125,7 @@ function App() {
           )}
           {searchType === "tags" && (
             <img
-              alt="Search by text"
+              alt="Search by tag"
               className="btn-search-type"
               onClick={() => setSearchType("text")}
               src={hashtagIcon}
