@@ -99,7 +99,7 @@ function App() {
         <div className="safe-search-container">
           <span>Safe search setting:</span>
           <button
-          data-testid="btn-safe-search-settings"
+            data-testid="btn-safe-search-settings"
             onClick={() => setShowSafeSearchSettings(true)}
             className={safeSearchClasses[safeSearch]}
           >
@@ -108,15 +108,6 @@ function App() {
         </div>
 
         <div className="search-container">
-          <img alt="Search button" onClick={searchPhoto} src={searchIcon} />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            type="text"
-            placeholder=""
-          />
-
           {searchType === "text" && (
             <img
               alt="Search by text"
@@ -133,12 +124,21 @@ function App() {
               src={hashtagIcon}
             />
           )}
+
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            type="text"
+            placeholder=""
+          />
+
+          <img alt="Search button" onClick={searchPhoto} src={searchIcon} />
         </div>
       </div>
 
       <div id="flickr-photos-container">
         {photos.map((item, index) => {
-          
           //console.log(item.id);
           const itemProps = {
             onTagSearch: onTagSearch,
@@ -150,7 +150,7 @@ function App() {
           };
 
           return (
-            <div  key={item.id} className="column">
+            <div key={item.id} className="column">
               <PhotoItem {...itemProps} />
             </div>
           );

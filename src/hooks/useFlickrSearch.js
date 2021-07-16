@@ -26,7 +26,7 @@ const useFlickrSearch = (query, page, safesearch, newquery, searchtype) => {
       query.trim() === "" ? "flickr.photos.getrecent" : "flickr.photos.search";
 
     const extras = "description,path_alias,tags,url_o,url_m,owner_name";
-    const per_page = 20;
+    const per_page = 30;
     const format = "json";
     const nojsoncallback = 1;
 

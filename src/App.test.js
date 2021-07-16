@@ -119,14 +119,12 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-
 test("Latest photos at the beginning", async () => {
   render(<App />);
   await waitFor(() => {
     expect(screen.getAllByText(/tags/i)[0]).toBeInTheDocument();
   });
 });
-
 
 test("show no results message", async () => {
   server.use(
@@ -147,13 +145,11 @@ test("show no results message", async () => {
   });
 });
 
-
 test("Change search type", async () => {
   render(<App />);
   fireEvent.click(screen.getByAltText("Search by text"));
   expect(screen.getByAltText("Search by tag")).toBeInTheDocument();
 });
-
 
 test("Change safe search settings", async () => {
   render(<App />);
