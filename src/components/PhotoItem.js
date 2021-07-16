@@ -6,8 +6,8 @@ const PhotoItem = (props, ref) => {
   const { url_m, url_o, title, description, tags, id, owner, ownername  } =
     props.photodata;
 
-  const link_photo = `https://www.flickr.com/photos/${owner}/${id}`;
-  const author_page = `https://www.flickr.com/photos/${owner}/`;
+  const photoUrl = `https://www.flickr.com/photos/${owner}/${id}`;
+  const authorPageUrl = `https://www.flickr.com/photos/${owner}/`;
   return (
     <div className="flickr-photo-item" ref={ref}>
 
@@ -18,11 +18,11 @@ const PhotoItem = (props, ref) => {
       <LazyImage alt="" src={url_m ? url_m : url_o} />
 
       <div className="info">
-        <a target="_blank" rel="noreferrer" href={link_photo}>
+        <a target="_blank" rel="noreferrer" href={photoUrl}>
           {title ? title : "( No title )"}
         </a>{" "}
         <span>by</span>{" "}
-        <a target="_blank" rel="noreferrer" href={author_page}>
+        <a target="_blank" rel="noreferrer" href={authorPageUrl}>
           {ownername}
         </a>
       </div>
