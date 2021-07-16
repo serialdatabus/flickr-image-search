@@ -1,5 +1,24 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #385975;
+  min-height: 100vh;
+}
+
+@keyframes element-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App .loading {
+  animation: element-spin infinite 1s linear;
+  width: 4em;
+  margin: 8em 0;
 }
 
 .App-logo {
@@ -7,32 +26,336 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.error-message {
+  background-color: #c61d1d;
+  color: white;
+  padding: 0.5em;
+  border-radius: 6px;
+  margin: 3em 0 8em 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.no-result {
+  background-color: #000000;
+  color: white;
+  padding: 0.5em;
+  border-radius: 6px;
+  margin: 6em 0 0 0;
+  width: 50%;
+  text-align: center;
+}
+
+#safe-search-settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: #000000a6;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all ease 0.3s;
+}
+
+#safe-search-settings.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#safe-search-settings button {
   color: white;
+  font-size: 1em;
+  border: 2px solid white;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  width: 14em;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+#safe-search-settings button:hover {
+  transform: scale(1.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#safe-search-settings button.disabled {
+  background-color: #b51111;
+}
+
+#safe-search-settings button.safe {
+  background-color: #149e2c;
+}
+
+#safe-search-settings button.moderate {
+  background-color: #0981c7;
+}
+
+#safe-search-settings button.restricted {
+  background-color: #0c0c0c;
+}
+
+#flickr-photos-container {
+  display: grid;
+
+  /*grid-template-columns: repeat(5, minmax(0, 1fr));*/
+
+  grid-auto-rows: auto;
+
+  grid-gap: 0;
+
+  margin-top: 70px;
+}
+
+#flickr-photos-container .placeholder {
+  height: 14em;
+  background: #a7b2b8;
+}
+
+#flickr-photos-container .column {
+  padding: 1em;
+}
+
+.flickr-photo-item {
+  border: 3px solid #d8dce2;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 28em;
+  padding: 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color: #eaf1f5;
+}
+
+.flickr-photo-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.flickr-photo-item .description {
+  flex: 1;
+  position: relative;
+  color: #3c3f42;
+  overflow: hidden;
+}
+
+.flickr-photo-item .description > p {
+  margin-top: 3px;
+}
+
+.flickr-photo-item .description .description-label {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.flickr-photo-item .description:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(
+    to right,
+    rgba(234, 241, 245, 0),
+    rgba(234, 241, 245, 1) 50%
+  );
+
+  pointer-events: none;
+}
+
+.flickr-photo-item .tags {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.flickr-photo-item .tags .label {
+  font-weight: bold;
+}
+
+.flickr-photo-item .tags .tags-list {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
+.flickr-photo-item .tags .tags-list a {
+  margin-left: 5px;
+  color: #3c3f42;
+}
+
+.flickr-photo-item .photo {
+  width: 100%;
+  height: 14em;
+  object-fit: cover;
+}
+
+.flickr-photo-item .lazyload-wrapper.notloaded {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flickr-photo-item > .info {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin: 0.5em 0;
+}
+
+.flickr-photo-item > .info > span {
+  margin: 0 5px;
+}
+
+.flickr-photo-item > .info a {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  white-space: nowrap;
+  color: #3c3f42;
+}
+
+#topbar {
+  background-color: #242425;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+#topbar .safe-search-container > span {
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+
+#topbar button {
+  color: white;
+  font-size: 1em;
+  border-radius: 7px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 2px solid white;
+  background-color: #249024;
+  width: 7em;
+  text-transform: uppercase;
+}
+
+#topbar button.disabled {
+  background: #b51111;
+}
+
+#topbar button.safe {
+  background: #149e2c;
+}
+
+#topbar button.moderate {
+  background: #0981c7;
+}
+
+#topbar button.restricted {
+  background: #0c0c0c;
+}
+
+#topbar .search-container {
+  display: inline-flex;
+  background: white;
+  height: 36px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#topbar .search-container img {
+  width: 1.5em;
+  border: none;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+#topbar .search-container input {
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  width: 26em;
+  font-size: 1em;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #flickr-photos-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+  #topbar .safe-search-container {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+  }
+
+  #topbar .safe-search-container > span {
+    display: none;
+  }
+
+  #topbar .search-container,
+  #topbar .search-container input {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #flickr-photos-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flickr-photo-item {
+    height: 30em;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #flickr-photos-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #flickr-photos-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1600px) {
+  #flickr-photos-container {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
