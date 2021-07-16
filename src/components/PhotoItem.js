@@ -3,14 +3,19 @@ import LazyImage from "./LazyImage";
 const PhotoItem = (props, ref) => {
  
   const { onTagSearch } = props;
-  const { url_m, title, description, tags, id, owner, ownername  } =
+  const { url_m, url_o, title, description, tags, id, owner, ownername  } =
     props.photodata;
 
   const link_photo = `https://www.flickr.com/photos/${owner}/${id}`;
   const author_page = `https://www.flickr.com/photos/${owner}/`;
   return (
     <div className="flickr-photo-item" ref={ref}>
-      <LazyImage alt="" src={url_m} />
+
+      {/*
+      For some strange reason the flickr ap sometimes don't return the medium images ( the "url_m" field )  
+      To avoid that, if the "url_m" field is not returned whe use the "url_o" field
+      */}
+      <LazyImage alt="" src={url_m ? url_m : url_o} />
 
       <div className="info">
         <a target="_blank" rel="noreferrer" href={link_photo}>

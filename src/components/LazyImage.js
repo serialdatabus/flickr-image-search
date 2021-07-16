@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import LazyLoad from "react-lazyload";
+import imageNotFound from "../assets/image-not-found.png";
+
 const LazyImage = ({ src, alt }) => {
   const refPlaceHolder = React.useRef();
 
@@ -20,7 +22,7 @@ const LazyImage = ({ src, alt }) => {
           onLoad={removePlaceHolder}
           onError={removePlaceHolder}
           className="photo"
-          src={src ? src : ""}
+          src={src ? src : imageNotFound}
         />
       </LazyLoad>
     </>
