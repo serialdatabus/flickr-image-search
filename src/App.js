@@ -53,9 +53,12 @@ function App() {
     (node) => {
    
       if (isLoading) return;
+      if(!hasMore) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
+
+
           setPage((prevPage) => prevPage + 1);
 
         }
@@ -64,7 +67,7 @@ function App() {
       if (node) {
         observer.current.observe(node);
       }
-    },
+    }, 
     [isLoading, hasMore]
   );
 
