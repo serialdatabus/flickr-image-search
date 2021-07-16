@@ -143,6 +143,7 @@ function App() {
             key: item.id,
             //Only the last item will have a ref because
             //the momment it shows up new items will be fetched
+            //allowing us to get the infinite scroll working
             ref: photos.length === index + 1 ? lastImageRef : null,
           };
 
