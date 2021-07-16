@@ -1,11 +1,11 @@
 import { useCallback, useRef, useState } from "react";
-import useFlickrSearch from "./useFlickrSearch";
-import "./App.css";
+import useFlickrSearch from "../hooks/useFlickrSearch";
+import "../styles/App.css";
 import PhotoItem from "./PhotoItem";
-import loadingIcon from "./loading.svg";
-import searchIcon from "./search.svg";
-import textIcon from "./text-font.svg";
-import hashtagIcon from "./hashtag.svg";
+import loadingIcon from "../assets/loading.svg";
+import searchIcon from "../assets/search.svg";
+import textIcon from "../assets/text-font.svg";
+import hashtagIcon from "../assets/hashtag.svg";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -30,13 +30,9 @@ function App() {
   const observer = useRef();
 
   const searchPhoto = () => {
-
     setQuery(query);
-
     setPage(1);
-
     forceQuery();
-
   };
 
   const handleKeyDown = (e) => {
@@ -47,29 +43,20 @@ function App() {
 
   const handleSettingsSafeSarch = (e, level) => {
     e.stopPropagation();
-
     setSafeSearch(level);
     setShowSafeSearchSettings(false);
-
     forceQuery();
   };
 
   const forceQuery = () => {
     setNewQuery((prev) => prev + 1);
-
-  }
+  };
 
   const onTagSearch = (tag) => {
-
-    console.log(tag);
-
     setSearchType("tags");
     setQuery(tag);
-
     forceQuery();
-
-
-  }
+  };
 
   const lastImageRef = useCallback(
     (node) => {
@@ -149,22 +136,19 @@ function App() {
 
       <div id="flickr-photos-container">
         {photos.map((item, index) => {
-
-            const refPros= {
-
-                ref: photos.length === (index + 1) ? lastImageRef : null
-
-            }
-       
+          
+          const itemPros = {
+            onTagSearch: onTagSearch,
+            photodata: item,
+            key: item.id,
+            //Only the last item will have a ref because
+            //the momment it shows up new items will be fetched
+            ref: photos.length === index + 1 ? lastImageRef : null,
+          };
 
           return (
             <div className="column">
-              <PhotoItem
-                onTagSearch={onTagSearch}
-                photodata={item}
-                key={item.id}
-                {...refPros}
-              />
+              <PhotoItem {...itemPros} />
             </div>
           );
         })}
