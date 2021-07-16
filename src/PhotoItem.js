@@ -1,7 +1,9 @@
 import React, { forwardRef } from "react";
 import LazyImage from "./LazyImage";
 const PhotoItem = (props, ref) => {
-  const { url_m, title, description, tags, id, owner, ownername } =
+ 
+  const { onTagSearch } = props;
+  const { url_m, title, description, tags, id, owner, ownername  } =
     props.photodata;
 
   const link_photo = `https://www.flickr.com/photos/${owner}/${id}`;
@@ -33,7 +35,7 @@ const PhotoItem = (props, ref) => {
         <span className="label">Tags:</span>
         <span className="tags-list">
           {tags.split(" ").map((tag, index) => (
-            <a key={index} href="/">
+            <a key={tag} onClick={(e)=>{ e.preventDefault(); onTagSearch(tag); }} href="/">
               {tag}
             </a>
           ))}

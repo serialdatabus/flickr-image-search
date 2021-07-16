@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #385975;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 @keyframes element-spin {
@@ -139,7 +140,7 @@
 
 .flickr-photo-item:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 .flickr-photo-item .description {
@@ -288,10 +289,21 @@
 }
 
 #topbar .search-container img {
-  width: 1.5em;
+  width: 2em;
   border: none;
-  margin: 5px 10px;
+  padding: 7px;
   cursor: pointer;
+  background-color: #aebfce;
+}
+
+#topbar .search-container img.btn-search-type {
+  background-color: yellow;
+  transition: all ease 0.3s;
+  border-left: 1px solid rgba(0, 0, 0, 0.508);
+}
+
+#topbar .search-container img.btn-search-type:hover {
+  background-color: rgb(199, 199, 22);
 }
 
 #topbar .search-container input {
@@ -299,6 +311,7 @@
   outline: none;
   margin-right: 10px;
   width: 26em;
+  padding: 5px;
   font-size: 1em;
 }
 

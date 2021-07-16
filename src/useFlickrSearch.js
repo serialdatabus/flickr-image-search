@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFlickrSearch = (query, page, safesearch, newquery) => {
+const useFlickrSearch = (query, page, safesearch, newquery , searchtype) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(false);
+
+  if(searchtype==="tags")
+  {
+    query = query.trim().split(" ").join(",");
+  }
+
+  console.log(query);
 
   const API_KEY = "3dff7db06ae123c0eeaf76682aea06d1";
 
@@ -32,7 +39,7 @@ const useFlickrSearch = (query, page, safesearch, newquery) => {
         extras,
         per_page,
         format,
-        text: query,
+        [searchtype]: query,
         api_key: API_KEY,
         nojsoncallback,
         safe_search: safesearch,
