@@ -139,7 +139,7 @@ function App() {
           
           const itemPros = {
             onTagSearch: onTagSearch,
-            photodata: item,
+            itemData: item,
             key: item.id,
             //Only the last item will have a ref because
             //the momment it shows up new items will be fetched
