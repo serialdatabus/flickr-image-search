@@ -17,7 +17,7 @@ const PhotoItem = (props, ref) => {
       */}
       <LazyImage alt="" src={url_m ? url_m : url_o} />
 
-      <div className="info">
+      <div className={"info"}>
         <a target="_blank" rel="noreferrer" href={photoUrl}>
           {title ? title : "( No title )"}
         </a>{" "}

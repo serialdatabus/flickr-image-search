@@ -106,7 +106,7 @@ function App() {
         </div>
 
         <div className="search-container">
-          <img alt="" onClick={searchPhoto} src={searchIcon} />
+          <img alt="Search button" onClick={searchPhoto} src={searchIcon} />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -117,7 +117,7 @@ function App() {
 
           {searchType === "text" && (
             <img
-              alt=""
+              alt="Search by tag"
               className="btn-search-type"
               onClick={() => setSearchType("tags")}
               src={textIcon}
@@ -125,7 +125,7 @@ function App() {
           )}
           {searchType === "tags" && (
             <img
-              alt=""
+              alt="Search by text"
               className="btn-search-type"
               onClick={() => setSearchType("text")}
               src={hashtagIcon}
@@ -137,10 +137,10 @@ function App() {
       <div id="flickr-photos-container">
         {photos.map((item, index) => {
           
-          const itemPros = {
+          //console.log(item.id);
+          const itemProps = {
             onTagSearch: onTagSearch,
             itemData: item,
-            key: item.id,
             //Only the last item will have a ref because
             //the momment it shows up new items will be fetched
             //allowing us to get the infinite scroll working
@@ -148,8 +148,8 @@ function App() {
           };
 
           return (
-            <div className="column">
-              <PhotoItem {...itemPros} />
+            <div  key={item.id} className="column">
+              <PhotoItem {...itemProps} />
             </div>
           );
         })}
