@@ -25,7 +25,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/serialdatabus/flickr-image-search">
-    <img src="images/flickr-image-finder.jpeg" style="width:10em;height:10em;object-fit:cover;" alt="Logo">
+    <img src="images/flickr-image-finder.jpeg" style="width:8em;height:8em;object-fit:cover;" alt="Logo">
   </a>
 
   <h3 align="center">Flickr Image Search</h3>
