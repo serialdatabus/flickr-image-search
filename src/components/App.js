@@ -33,7 +33,6 @@ function App() {
     setQuery(query);
     setPage(1);
     forceQuery();
-
   };
 
   const handleKeyDown = (e) => {
