@@ -297,7 +297,7 @@
 }
 
 #topbar .search-container img.btn-search-type {
-  background-color: yellow;
+  background-color: #cdcd38;
   transition: all ease 0.3s;
   border-left: 1px solid rgba(0, 0, 0, 0.508);
 }
