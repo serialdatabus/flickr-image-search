@@ -13,7 +13,7 @@ const PhotoItem = (props, ref) => {
 
       {/*
       For some strange reason the flickr ap sometimes don't return the medium images ( the "url_m" field )  
-      To avoid that, if the "url_m" field is not returned whe use the "url_o" field
+      To avoid that, if the "url_m" field is not returned whe use the "url_o" field instead
       */}
       <LazyImage alt="" src={url_m ? url_m : url_o} />
 
