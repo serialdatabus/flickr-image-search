@@ -104,7 +104,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-4. Create a `.env` file and enter the environment variable below for the API KEY
+4. Create a `.env` file in the root of your react project and enter the environment variable below for the API KEY
    ```JS
    REACT_APP_API_KEY='ENTER YOUR API';
    ```
