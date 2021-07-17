@@ -104,9 +104,9 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Create a `.env` file and enter the environment variable below for the API KEY
    ```JS
-   const API_KEY = 'ENTER YOUR API';
+   REACT_APP_API_KEY='ENTER YOUR API';
    ```
 
 
