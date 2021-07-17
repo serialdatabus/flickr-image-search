@@ -34,7 +34,7 @@ const PhotoItem = (props, ref) => {
 
         </p>
 
-      </div>
+      </div> 
 
       <div className="tags">
         <span className="label">Tags:</span>

@@ -33,6 +33,8 @@ function App() {
     setQuery(query);
     setPage(1);
     forceQuery();
+
+    alert(process.env.REACT_APP_API_KEY);
   };
 
   const handleKeyDown = (e) => {

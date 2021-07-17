@@ -6,12 +6,12 @@ const useFlickrSearch = (query, page, safesearch, newquery, searchtype) => {
   const [hasMore, setHasMore] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(false);
-
+ 
   query = searchtype === "tags" ? query.trim().split(" ").join(",") : query;
-
+ 
 //  console.log(query);
 
-  const API_KEY = "3dff7db06ae123c0eeaf76682aea06d1";
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     setPhotos([]);
