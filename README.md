@@ -104,7 +104,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://www.flickr.com/services/developer/api/](https://www.flickr.com/services/developer/api/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/serialdatabus/flickr-image-search.git
    ```
 3. Install NPM packages
    ```sh
@@ -193,5 +193,5 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/serialdatabus/flickr-image-search/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/elizeu-carlos-618941121/
 [product-screenshot]: images/flickr-app.png
