@@ -33,11 +33,11 @@
   <p align="center">
     An awesome app where you can search easily your favourite image!
       <br/>
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://main--stupefied-leakey-dd3d88.netlify.app/">View App</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/serialdatabus/flickr-image-search/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/serialdatabus/flickr-image-search/issues">Request Feature</a>
   </p>
 </p>
 
