@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import LazyImage from "./LazyImage";
 const PhotoItem = (props, ref) => {
- 
+  
   const { onTagSearch } = props;
   const { url_m, url_o, title, description, tags, id, owner, ownername  } =
     props.itemData;
