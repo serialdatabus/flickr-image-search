@@ -9,7 +9,6 @@ const useFlickrSearch = (query, page, safesearch, newquery, searchtype) => {
  
   query = searchtype === "tags" ? query.trim().split(" ").join(",") : query;
  
-//  console.log(query);
 
   const API_KEY = process.env.REACT_APP_API_KEY;
 
