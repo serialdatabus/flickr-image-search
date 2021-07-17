@@ -56,7 +56,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <!-- <li><a href="#prerequisites">Prerequisites</a></li> -->
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -88,7 +88,7 @@ An insanely easy interface to search flickr photos.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+
 To get a local copy up and running follow these simple example steps.
 
 
@@ -120,11 +120,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 
-<!-- ROADMAP -->
+<!-- ROADMAP
 ## Roadmap
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
+ -->
 
 
 <!-- CONTRIBUTING -->
