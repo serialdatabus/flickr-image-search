@@ -96,12 +96,12 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install npm
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://www.flickr.com/services/developer/api/](https://www.flickr.com/services/developer/api/)
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
