@@ -28,10 +28,10 @@
     <img src="images/flickr-image-finder.jpeg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Flickr Image Search</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An awesome app where you can search easily your favourite image!
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
