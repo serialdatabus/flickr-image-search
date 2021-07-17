@@ -31,8 +31,8 @@
   <h3 align="center">Flickr Image Search</h3>
 
   <p align="center">
-  <br/>
     An awesome app where you can search easily your favourite image!
+      <br/>
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
